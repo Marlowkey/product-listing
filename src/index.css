@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -111,11 +113,37 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@font-face {
+  font-family: 'RedHat';
+  src: url('../src/assets/fonts/static/RedHatText-Bold.ttf') format('truetype');
+  font-weight: 700; /* bold */
+  font-style: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RedHat';
+  src: url('../src/assets/fonts/static/RedHatText-Regular.ttf') format('truetype');
+  font-weight: 400; /* normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
 @layer base {
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-[redhat] font-normal;
+   
   }
+
+  h1 {
+    @apply font-[redhat] font-bold;
+  }
+
 }
