@@ -24,7 +24,7 @@ interface ProductCardProps {
 
 function ProductCard({ product, onAddToCart }: ProductCardProps) {
   return (
-    <Card className="overflow-hidden shadow-lg">
+    <Card className="overflow-hidden shadow-lg  transition-colors hover:border-orange-700 py-0">
       <CardHeader className="p-0">
         <picture>
           <source media="(min-width:1024px)" srcSet={product.image.desktop} />
@@ -33,7 +33,7 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
           <img
             src={product.image.thumbnail}
             alt={product.name}
-            className="w-full h-[180px] object-cover block"
+            className="w-full h-full object-cover block rounded-2xl"
             loading="lazy"
           />
         </picture>
@@ -43,7 +43,7 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
         <h3 className="text-lg font-semibold truncate font-redhat">{product.name}</h3>
         <p className="text-sm text-muted-foreground mt-1">{product.category}</p>
         <div className="mt-3 flex items-center justify-between">
-          <div className="text-xl font-bold">${product.price.toFixed(2)}</div>
+          <div className="text-xl font-black text-orange-700">${product.price.toFixed(2)}</div>
           <div className="text-sm text-gray-500">per item</div>
         </div>
       </CardContent>
@@ -51,7 +51,7 @@ function ProductCard({ product, onAddToCart }: ProductCardProps) {
       <CardFooter className="px-4 py-3">
         <Button
           onClick={() => onAddToCart?.(product)}
-          className="w-full flex items-center justify-center gap-2 rounded-xl p-2"
+          className="text-black font-bold w-full flex py-2 items-center justify-center gap-2 rounded-xl p-2 bg-white border-2 border-orange-700 hover:bg-orange-700 hover:text-white transition-colors text-lg"
         >
           <ShoppingCart size={16} />
           Add to Cart
